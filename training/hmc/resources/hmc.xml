@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<configuration xmlns="hybris.de/schemas/hmc/generic"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="hybris.de/schemas/hmc/generic hmc.xsd">
+
+
+	<explorertree>
+		<group name="medias" expand="false" description="group.media.description">
+			<typeref type="ImageMedia" description="typeref.imagemedia.description"/>
+		</group>
+	</explorertree>
+
+
+	<type name="ImageMedia" mode="append">
+		<organizer>
+			<search mode="append">
+				<condition attribute="topic"/>
+			</search>
+			<result>
+				<listview mode="append">
+					<itemlayout>
+
+						<attribute name="topic" width="100"/>
+					</itemlayout>
+				</listview>
+				<editview mode="append">
+					<itemlayout>
+						<attribute name="topic"/>
+					</itemlayout>
+				</editview>
+				<treeview mode="append">
+					<itemlayout>
+						<attribute name="code"/>
+					</itemlayout>
+				</treeview>
+			</result>
+			<editor>
+
+				<essentials>
+					<listlayout>
+						<attribute name="topic"/>
+					</listlayout>
+				</essentials>
+				<tab name="tab.common" position="0">
+					<section name="properties">
+						<listlayout>
+							<attribute name="url">
+								<specialeditor
+										classname="de.hybris.platform.hmc.media.MediaFileUploadEditorChip"
+										parameter="showpreview"
+								/>
+							</attribute>
+							<attribute name="topic" />
+						</listlayout>
+					</section>
+				</tab>
+			</editor>
+		</organizer>
+		<defaultreference searchattribute="topic">
+			<itemlayout>
+				<attribute name="topic"/>
+			</itemlayout>
+		</defaultreference>
+	</type>
+
+</configuration>
